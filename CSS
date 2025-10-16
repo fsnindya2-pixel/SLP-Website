@@ -1,0 +1,767 @@
+/* Styling Umum */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #9acced;
+    margin: 0 20px 20px 0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 100%;
+}
+
+header h1 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+header p {
+    text-align: center;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #343a40;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+h3 {
+    margin-top: 20px;
+    color: #495057;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #6c757d;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+/* KONTROL MULTI-LANGKAH */
+.form-step.hidden {
+    display: none;
+}
+
+/* Step Indicator */
+.steps-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    position: relative;
+    padding: 0 50px;
+    color: #6c757d;
+}
+
+.steps-indicator::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 50px;
+    right: 50px;
+    height: 2px;
+    background-color: #ccc;
+    z-index: 1;
+}
+
+.step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+    color: #6c757d;
+    font-size: 14px;
+    z-index: 2;
+}
+
+.step .circle {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 5px;
+    font-weight: bold;
+    border: 2px solid #ccc;
+}
+
+.steps-indicator .step.active {
+    color: #007bff;
+    font-weight: bold;
+}
+/* Styling untuk lingkaran (circle) indikator langkah */
+.steps-indicator .step .circle {
+    /* Gaya default lingkaran (misalnya, abu-abu muda) */
+    background-color: #e9ecef; 
+    color: #6c757d;
+    border: 1px solid #ced4da;
+}
+/* Styling untuk lingkaran langkah yang sedang aktif */
+.steps-indicator .step.active .circle {
+    background-color: #007bff; /* Latar belakang lingkaran menjadi biru */
+    color: #fff; /* Angka di dalam lingkaran menjadi putih */
+    border-color: #007bff;
+}
+
+/* Mengubah warna langkah aktif dan lingkaran */
+.form-step:not(.hidden) .steps-indicator .step[data-step="1"].active .circle,
+.form-step:not(.hidden) .steps-indicator .step[data-step="2"].active .circle,
+.form-step:not(.hidden) .steps-indicator .step[data-step="3"].active .circle {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.form-step:not(.hidden) .steps-indicator .step[data-step="1"].active,
+.form-step:not(.hidden) .steps-indicator .step[data-step="2"].active,
+.form-step:not(.hidden) .steps-indicator .step[data-step="3"].active {
+    color: #000;
+    font-weight: bold;
+}
+
+
+/* Navigasi Tab (Langkah 1) */
+th.table-wrapper { overflow-x: auto;text-align: center; width:auto; }
+th.table-wrapper1 { overflow-x: auto;text-align: center; width: auto; }
+th.table-wrapper2 { text-align: center; width: auto;}
+table { width: 100%; border-collapse: collapse;}
+th, td { padding: 10px; text-align: left; border: 1px solid #e0e0e0; vertical-align: middle; }
+thead { background-color: #0056b3; color: white; }
+td:first-child {width: 25%;}
+
+
+
+
+/* Layout Tabel Form (Langkah 1) */
+tr.group-header {background-color: #e3dada;font-weight: bold;}
+input[type="text"], input[type="number"], input[type="date"], textarea { 
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 6px; 
+    font-size: 1rem; 
+    box-sizing: border-box;}
+
+.input-group label {
+    width: 100%;
+    font-size: 0.9em;}
+
+
+.table-form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dee2e6;
+    margin-bottom: 30px;
+}
+.radio-group label {
+    margin-right: 15px;
+    display: inline-flex;
+    align-items: center;}
+.radio-group input[type="radio"] {
+    margin-right: 5px;}
+
+.radio-group2 label {
+    margin-right: 15px;
+    display: inline-flex;
+    align-items: center;}
+.radio-group2 input[type="radio"] {
+    margin-right: 5px;}
+
+    
+
+/* radio langkah 1*/
+    /* 1. Sembunyikan radio button bawaan */
+    .radio-group input[type="radio"] {
+        /* Atur input agar tidak terlihat, tapi tetap dapat digunakan (aksesibilitas) */
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    /* 2. Gaya untuk Label yang Bertindak sebagai Kotak Penilaian */
+    /* Timpa gaya label yang lama di .radio-group label */
+    .radio-group label {
+        display: inline-block; /* Pastikan ini bukan flex/inline-flex agar mudah ditata */
+        padding: 5px 10px;
+        margin: 2px 5px 2px 0; /* Memberi jarak antar tombol */
+        border: 1px solid #ccc; /* Border abu-abu standar */
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        background-color: #f4f4f4; /* Latar belakang abu-abu muda default */
+        color: #555;
+        transition: all 0.2s ease;
+        font-weight: normal; /* Kembali ke normal, karena ini label visual */
+    }
+    /* 3. Gaya saat kursor mengarah (opsional) */
+    .radio-group label:hover {
+        background-color: #e9e9e9;
+        border-color: #aaa;
+    }
+    /* 4. Gaya AKTIF (Terisi/Checked) - Menggunakan :has() */
+    /* :has() menargetkan label yang memiliki input radio yang sedang checked di dalamnya */
+    .radio-group label:has(input[type="radio"][value="sesuai"]:checked) {
+        background-color: #4280d2; /* Warna biru saat terisi */
+        color: white; /* Teks putih */
+        border-color: #4280d2;
+        font-weight: 600; /* Teks lebih tebal untuk penekanan */
+    }
+    /* Menargetkan label yang memiliki radio button dengan value="tidak" yang sedang checked */
+    .radio-group label:has(input[type="radio"][value="tidak"]:checked) {
+        background-color: #dd747e; /* Warna Merah yang Umum (Bootstrap danger) */
+        color: white; 
+        border-color: #dd747e;
+    }
+    /* 5. Perbaikan untuk radio-buttons di Kesimpulan (jika ingin tetap terlihat sebagai radio tradisional) */
+    /* Pastikan label radio Kesimpulan tidak terpengaruh */
+    .radio-buttons label {
+        display: inline-flex; /* Kembalikan ke format tradisional jika diperlukan */
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        font-weight: normal;
+    }
+    .radio-buttons input[type="radio"] {
+        /* Mengembalikan tampilan radio button Kesimpulan */
+        position: static;
+        opacity: 1;
+        width: auto;
+        height: auto;
+        margin-right: 5px;
+    }
+
+/*Langkah 1 Kesimpulan*/
+/* 1. Gaya AKTIF (Terisi/Checked) - Menggunakan :has() */
+    /* :has() menargetkan label yang memiliki input radio yang sedang checked di dalamnya */
+    .radio-group label:has(input[type="radio"][value="laik"]:checked) {
+        background-color: #4280d2; /* Warna biru saat terisi */
+        color: white; /* Teks putih */
+        border-color: #4280d2;
+        font-weight: 600; /* Teks lebih tebal untuk penekanan */
+    }
+    /* Menargetkan label yang memiliki radio button dengan value="tidak" yang sedang checked */
+    .radio-group label:has(input[type="radio"][value="tidak_laik"]:checked) {
+        background-color: #dd747e; /* Warna Merah yang Umum (Bootstrap danger) */
+        color: white; 
+        border-color: #dd747e;
+    }
+
+
+/*radio langkah 2*/
+.hidden-radio { position: absolute; opacity: 0; width: 0; height: 0;}
+.penilaian-btn {display: inline-block;justify-content: center; padding: 2px 8px; margin: 2px 0; border: 1px solid #ccc; background-color: #f8f8f8; color: #333; font-size: 16px; cursor: pointer; border-radius: 3px; text-align: center; min-width: 50px;}
+.penilaian-group input[value='sesuai']:checked + .penilaian-btn {background-color: #007bff; color: white; border-color: #007bff;}
+.penilaian-group {white-space: normal;}
+.penilaian-group label {display: block; margin: center;}
+.penilaian-group input[value="tidak"]:checked + .penilaian-btn {
+    background-color: #dd747e;
+    border-color: #dd747e;
+}
+/* Layout Tabel Form (Langkah 2) */
+th.kolom-no { width: 40px; max-width: 40px; text-align: center; padding-left: 5px; padding-right: 5px; box-sizing: border-box; table-layout: fixed;}
+.kolom-penilaian {width: 150px; text-align: center;}
+td.kolom-no {width: 40px; min-width: 40px; max-width: 40px; text-align: center; white-space: nowrap; box-sizing: border-box; overflow: hidden;}
+
+/* Widths Langkah 1 */
+.table-row input[type="text"] {
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Button Styling */
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #6c757d;
+    background-color: #f0f0f0;
+    color: #495057;
+}
+
+.btn-upload {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Kesimpulan dan Catatan */
+.conclusion-box {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+.conclusion-box p {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.conclusion-box textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.radio-group label {
+    margin-right: 20px;
+    font-weight: normal;
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* Styling Spesifik Langkah 2 (Rekapitulasi) */
+.rekap-table td:nth-child(3),
+td.penilaian-group {
+    width: auto;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+
+.rekap-table .header-row {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+}
+
+.rekap-subheader {
+    background-color: #e9ecef !important;
+    color: #000 !important;
+}
+
+.rekap-table .cell {
+    padding: 10px 8px;
+    border-right: 1px solid #dee2e6;
+}
+
+/* Widths Langkah 2 */
+.col-no { flex: 0.5; max-width: 50px; justify-content: center; }
+.col-deskripsi-rekap { flex: 4; }
+.col-penilaian-rekap { flex: 2; }
+.col-penilaian-sub { flex: 1; justify-content: center; }
+.col-penilaian-radio { flex: 1; justify-content: center; }
+.col-keterangan-rekap { flex: 4; }
+
+.rekap-data input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.rekap-data textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none;
+    min-height: 40px;
+}
+
+.rekap-actions {
+    justify-content: space-between;
+}
+
+.rekap-conclusion .radio-group label {
+    display: inline-flex;
+    padding: 0;
+    margin: 0 15px 5px 0;
+    border: none;
+    background-color: transparent;
+    font-weight: normal;
+    font-size: 1em;
+    flex-direction: column;
+}
+.rekap-conclusion .radio-group input [type="radio"] {
+    position: static;
+    opacity: 1;
+    width: auto;
+    height: auto;
+    margin-right: 5px;
+}
+
+/*upload*/
+.button-upload {
+    display: block; /* Agar bisa mengisi lebar */
+    padding: 8px 10px;
+    background-color: #808387; /* Warna biru */
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer; /* Menunjukkan bahwa ini dapat diklik */
+    font-size: 14px;
+    margin-top: 5px;}
+.button-upload:hover {
+    background-color: #4280d2;}
+
+/* Gaya untuk Tabel Tanda Tangan */
+.signature-block {
+    margin-top: 25px;
+}
+
+.signature-block h3 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Gaya untuk Input di dalam Tabel */
+.signature-table input[type="text"], 
+.signature-table input[type="date"] {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: none; /* Hilangkan border input agar cell yang terlihat punya border */
+    text-align: center;
+    background-color: transparent;
+}
+
+/* Gaya untuk Placeholder Tanda Tangan */
+.ttd-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d; /* Warna abu-abu untuk teks TTD */
+    font-style: italic;
+}
+/* Targetkan kontainer utama Datepicker */
+.ui-datepicker, 
+.datepicker-dropdown {
+    transform: scale(1.2); /* Perbesar 20% */
+    transform-origin: top left; /* Agar pembesaran dimulai dari sudut kiri atas */
+    margin-bottom: 20%; /* Tambahkan margin agar tidak menimpa elemen lain setelah pembesaran */
+}
+
+/* Gaya untuk Modal (Pop-up) TTD */
+.modal {
+    display: none; /* Sembunyikan secara default */
+    position: fixed; 
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Background gelap */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Tengah-tengah secara vertikal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Lebar modal */
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Gaya Kanvas */
+#ttdCanvas {
+    cursor: crosshair;
+    touch-action: none; /* Penting untuk perangkat sentuh */
+    width: 100%;
+    /* Atur border yang jelas */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Gaya tombol di dalam modal */
+.modal-actions button {
+    padding: 8px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#saveTtdBtn {
+    background-color: #007bff;
+    color: white;
+}
+#clearTtdBtn {
+    background-color: #f4f4f4;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+@media print {
+    /* 1. Reset dan Atur Ulang Tata Letak Dasar */
+    body, html {
+        background-color: white !important; /* Pastikan latar belakang putih */
+        color: #000 !important;
+        /* Hapus margin agar konten mengisi halaman */
+        margin: 0;
+        padding: 0;
+        display: block;
+        font-size: 12pt; 
+        font-family: 'Times New Roman', Times, serif;/* Nonaktifkan Flexbox/Grid di body saat cetak */
+     
+    }
+
+    .container {
+        width: 98% !important;
+        max-width: none !important;
+        padding: 15px !important; /* Beri sedikit padding untuk tepi halaman */
+        box-shadow: none !important; /* Hapus bayangan */
+        border-radius: 0 !important;
+    }
+    
+    /* 2. Sembunyikan Elemen Interaktif dan Navigasi */
+    .steps-indicator, /* Indikator Langkah */
+    .form-actions,    /* Tombol Lanjut/Kembali/Kirim */
+    .btn-upload,      /* Tombol Upload File */
+    .button-upload,
+    #tambah-baris-rekap, /* Tombol Tambah Baris */
+    .ttd-btn,          /* Tombol Input Tanda Tangan */
+    .modal,
+    .modal-content,
+    .close-btn,
+    .modal-actions {
+        display: none !important;
+    }
+    
+    /* 3. Tampilkan Semua Langkah Formulir */
+    table {
+        border: 1px solid #000 !important; /* Border tabel hitam solid */
+        padding : 10px 10px !important;
+        line-height: 1,2;
+    }
+    th, td {
+        border: 1px solid #000 !important;
+        padding: 6px 8px !important; /* Padding lebih kecil untuk menghemat ruang */
+        font-size: 12pt;
+    }
+    thead th {
+        background-color: #e9ecef !important; /* Latar belakang header lebih terang */
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        font-weight: bold;
+        font-size: 12pt;
+    }
+    .group-header {
+        background-color: #f8f9fa !important; /* Latar sub-header lebih terang */
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .form-step {
+        /* Timpa .form-step.hidden, paksa tampilkan */
+        display: block !important; 
+        opacity: 1 !important;
+        visibility: visible !important;
+        /* Opsional: Mulai setiap langkah di halaman baru */
+        page-break-before: always; 
+    }
+    
+    /* Hapus page-break di langkah pertama agar tidak ada halaman kosong di awal */
+    .form-step:first-child {
+        page-break-before: auto; 
+    }
+
+    /* 4. Perbaikan Tampilan Input dan Data */
+    input[type="text"], 
+    input[type="number"], 
+    input[type="date"],
+    textarea {
+        /* Hapus border input agar hanya nilai yang terlihat */
+        border: none !important; 
+        padding: 0;
+        margin: 0;
+        width: 100%; 
+        box-shadow: none !important;
+        background-color: transparent !important;
+        color: #000 !important;
+        font-weight: normal !important;
+        text-align: left !important;
+        
+        /* Tambahkan garis bawah putus-putus agar nilai input terlihat jelas */
+        border-bottom: none !important;
+    }
+    
+    
+    /* 5. Tampilkan Pilihan Radio/Checkbox yang Terpilih */
+    
+    /* Atur ulang gaya tombol penilaian/radio agar menjadi teks biasa */
+    .radio-group label, .penilaian-group label {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background-color: transparent;
+        color: black;
+        font-weight: normal;
+        cursor: default;
+    }
+    
+    /* Sembunyikan input radio agar tidak mengganggu tata letak cetak */
+    .radio-group input[type="radio"],
+    .penilaian-group input[type="radio"] {
+        display: none !important;
+    }
+    
+    /* Ganti tombol penilaian visual dengan teks biasa */
+    .penilaian-btn {
+        display: inline !important;
+        padding: 0 !important;
+        border: none !important;
+        background: transparent !important;
+        color: black !important;
+        font-size: 1em !important;
+        font-weight: normal !important;
+    }
+
+    /* Tandai item yang dipilih */
+    /* Untuk radio/penilaian yang menggunakan label:has() */
+    .radio-group label:has(input[type="radio"]:checked)::after,
+    .penilaian-group input[type="radio"]:checked + .penilaian-btn::after {
+        content: " (✓)"; /* Tambahkan tanda centang di sebelah yang dipilih */
+        font-weight: bold;
+        color: #000;
+        margin-left: 5px;
+    }
+
+    /* Hapus gaya background/warna yang mengganggu hasil cetak */
+    .radio-group label:has(input[type="radio"]:checked) {
+        background-color: transparent !important;
+        border-color: transparent !important;
+        color: black !important;
+    }
+    
+    /* 6. Tampilkan Pratinjau Tanda Tangan */
+    .ttd-placeholder {
+        /* Jika Anda menggunakan elemen img untuk pratinjau tanda tangan, 
+           pastikan pratinjau tersebut terlihat di sini. Sesuaikan selector Anda. */
+        display: block !important;
+        border: 1px solid #ccc;
+        min-height: 80px; /* Jaga agar area ttd terlihat */
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .ttd-preview img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Pastikan header dan footer tabel (thead/tfoot) berulang di setiap halaman */
+    thead {
+        display: table-header-group;
+    }
+    tfoot {
+        display: table-footer-group;
+    }
+}
+
+/* Styling dasar untuk input file */
+.input-group-file {
+    display: flex; /* Untuk menata elemen sebaris */
+    flex-direction: column; /* Ubah ke kolom agar status di bawah tombol */
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.button-upload {
+    /* Menjadikan label terlihat seperti tombol */
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff; /* Warna biru, sesuaikan dengan tema Anda */
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.button-upload:hover {
+    background-color: #0056b3;
+}
+
+.upload-status {
+    /* Styling untuk teks 'Belum ada file' / 'Foto diupload' */
+    font-size: 12px;
+    color: #6c757d; /* Warna abu-abu default */
+}
+
+.uploaded-image-preview {
+    /* Styling untuk preview gambar */
+    max-width: 100%; /* Batasi lebar gambar agar tidak merusak tabel */
+    height: auto;
+    max-height: 100px; /* Batasi tinggi untuk preview */
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    object-fit: contain; /* Pastikan gambar terlihat utuh */
+}
+
+/* Jika Anda ingin tombol dan status sebaris, gunakan ini: */
+/*
+.input-group-file {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+*/
+
+
